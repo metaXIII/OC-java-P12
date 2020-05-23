@@ -1,0 +1,12 @@
+language: java
+jdk: oraclejdk11
+notifications:
+  slack:
+    on_success: always
+addons:
+  sonarcloud:
+    organization: metaxiii
+    token:
+      secure: d+F8VmZhEG+LMg02UOk1QdSqUIndvfst81WfyXjKpLsOSKFi+eba8F5wo4jdsONFGGULHujFCfkkeL49EVHS8MtBchNG9ryWleHhy28GesWq7+1NoxulfT1MAIwztuGFzbF6zk6y0G0b1WbASDuHBDkRlU1RSQWkT/BuO4apdlzlR7UXxTFD0lCiaeKChWF8+6+VPDl66BEH5QfrbZLpRZSs+aJBG8ktkugjiqTEkSNKgryaZVvrgHi0c/4LEI7jtDRWQBDeNxN9sptr6r92EY2vAa/3noHuaQ/R7DMK5/fvs85BOld1kZKRO5L4jDZ2gUtb1xyagwLnIEP+vYdAHgVtS9gzeQY87bzWT3lay6EacbG69RjDjU7w1Te/fbQ3rGYFlYyte54kowVMHSqECJCiZLSfjmvVCAQ/s5XF0T0iQPChgkS0gWp8pGpAlbCy1JARUgB6gIBovsCEusKrU4wGFE1zbq/P5OhNu/P1Vw8jQcY9hk3FFaUsozyfd7RnoEGATDIVvXmMefifS9ouqNBufI9sym/O+j+KgHeEI3u8V9l18EaOEDWbLCdVi3/v/ZK9mHHVt3aQASgBUHH9AFKCLTiIw0RxoMqeUNOhC/utUfSomeSSLQQc6Tpt1pUV4+2AvbASr/yKR87294PU7+6Ee5ZIGoTJphHhkcbPcMA=
+script:
+  - mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.projectKey=metaXIII_OC-java-P12
