@@ -1,2 +1,18 @@
 server:
   port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: article
+          uri: http://localhost:8000/
+          predicates:
+            - Path=/api/article/**
+        - id: user
+          uri: http://localhost:8001/
+          predicates:
+            - Path=/api/user/**
+        - id: mail
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/api/mail/**
