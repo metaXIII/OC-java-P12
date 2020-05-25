@@ -7,12 +7,18 @@ body {
   flex-direction: column;
 }
 
+html {
+  background-color: #f7f7f7;
+}
+
 html, body {
   height: 100%;
 }
 
 body {
+  background-color: #fff;
   margin: 0;
+  height: auto !important;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -20,10 +26,8 @@ app-root {
   min-height: 100vh;
 }
 
-app-footer {
-  position: relative;
-  z-index: 0;
-  bottom: 0;
+router-outlet {
+  background-color: #fff;
 }
 
 /* Importing Bootstrap SCSS file. */

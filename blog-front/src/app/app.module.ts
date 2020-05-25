@@ -12,6 +12,7 @@ import {MatTabsModule} from "@angular/material/tabs"
 import {UserService} from "./user.service";
 import { EnvironnementComponent } from './environnement/environnement.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import {FormsModule} from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -22,13 +23,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     AdminComponent,
     EnvironnementComponent
   ],
-  imports     : [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatTabsModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatTabsModule,
+        NgbModule,
+        FormsModule
+    ],
   providers   : [
     UserService
   ],

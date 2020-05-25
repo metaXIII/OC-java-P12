@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Subscription} from "rxjs"
 import {Router} from "@angular/router"
 
 @Component({
@@ -11,7 +10,6 @@ export class HeaderComponent implements OnInit {
 
   links: any[]
   activeLinkIndex = -1
-  private countSubscription: Subscription;
 
   constructor(private router: Router) {
   }
@@ -33,7 +31,7 @@ export class HeaderComponent implements OnInit {
         link : 'mon-environnement',
         index: 1
       }, {
-        label: 'Newsletter',
+        label: 'S\'abonner à la newsletter',
         index: 2
       }
     ]
