@@ -9,10 +9,11 @@ import {FooterComponent} from './footer/footer.component';
 import {AdminComponent} from './admin/admin.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs"
-import {UserService} from "./user.service";
-import { EnvironnementComponent } from './environnement/environnement.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import {FormsModule} from "@angular/forms"
+import {UserService} from "./service/user.service";
+import {EnvironnementComponent} from './environnement/environnement.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoginComponent} from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -21,18 +22,21 @@ import {FormsModule} from "@angular/forms"
     IndexComponent,
     FooterComponent,
     AdminComponent,
-    EnvironnementComponent
+    EnvironnementComponent,
+    LoginComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatTabsModule,
-        NgbModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers   : [
-    UserService
+    UserService,
+    FormBuilder
   ],
   bootstrap   : [AppComponent]
 })

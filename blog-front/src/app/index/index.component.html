@@ -1,5 +1,5 @@
 <div class="container pt-3 row">
-  <div class="col-8 row">
+  <div class="offset-1 col-8 row">
     <div class="border" *ngFor="let country of countries">
       <div class="col-3">
         <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" alt="Photo de l'article"
@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div class="col-4 text-right">
+  <div class="col-3 text-right">
     <div>
       <h2>Réseaux Sociaux</h2>
       <p>aze</p>

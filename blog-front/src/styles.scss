@@ -1,13 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  max-width: 1200px;
-  margin: auto !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-html {
+.grey {
   background-color: #f7f7f7;
 }
 
@@ -15,18 +14,21 @@ html, body {
   height: 100%;
 }
 
-body {
-  background-color: #fff;
-  margin: 0;
-  height: auto !important;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 app-root {
   min-height: 100vh;
 }
 
+.max-width {
+  background-color: #fff;
+  max-width: 1200px;
+  margin: auto !important;
+}
+
 router-outlet {
+  background-color: #fff;
+}
+
+.grey-bg {
   background-color: #fff;
 }
 

@@ -1,15 +1,16 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from "./index/index.component"
 import {AdminComponent} from "./admin/admin.component"
-import {UserService} from "./user.service"
-import {Environment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/environment"
+import {UserService} from "./service/user.service"
 import {EnvironnementComponent} from "./environnement/environnement.component"
+import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
   {path: 'mon-environnement', component: EnvironnementComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent, canActivate: [UserService]},
   {path: '**', redirectTo: 'index'}
 ];

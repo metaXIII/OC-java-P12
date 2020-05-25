@@ -1,0 +1,18 @@
+<div class="container pt-3">
+  <h2>Espace Administration</h2>
+
+  <form method="post" [formGroup]="signinForm" (ngSubmit)="Submit()">
+    <div class="form-group">
+      <label for="username">Username :</label>
+      <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" name="username"
+             formControlName="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password :</label>
+      <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password"
+             formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="signinForm.invalid">Se connecter</button>
+  </form>
+
+</div>
