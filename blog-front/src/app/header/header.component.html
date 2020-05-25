@@ -1,0 +1,14 @@
+<header>
+  <div class="header">
+    <img src="assets/wall/logo.png" width="100%" height="150px">
+  </div>
+  <h1>Blog d'un développeur</h1>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link *ngFor="let link of links" [routerLink]="link.link"
+       [ngClass]="link.index === 2 ? 'customPosition': ''"
+       routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+</header>
+

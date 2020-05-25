@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  max-width: 1200px;
+  margin: auto !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+  min-height: 100vh;
+}
+
+app-footer {
+  position: relative;
+  z-index: 0;
+  bottom: 0;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
