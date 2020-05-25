@@ -1,6 +1,6 @@
 <div class="container pt-3">
   <h2>Espace Administration</h2>
-
+  <div class="alert alert-danger" *ngIf="error">Une erreur est survenue, merci de réessayer plus tard</div>
   <form method="post" [formGroup]="signinForm" (ngSubmit)="Submit()">
     <div class="form-group">
       <label for="username">Username :</label>

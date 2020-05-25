@@ -29,15 +29,11 @@ export class LoginComponent implements OnInit {
 
   public Submit() {
     let formValue = this.signinForm.value
-    if (formValue['password'] !== formValue['checkPassword']) {
-      this.error = true
-      return;
-    }
     this.userService.login(formValue).subscribe((data: User) => {
       this.userService.setUser(data)
       this.router.navigate(['admin'])
     }, callback => {
-      console.log(callback)
+      this.error = true
     })
   }
 }

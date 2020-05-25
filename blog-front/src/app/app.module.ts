@@ -14,6 +14,7 @@ import {EnvironnementComponent} from './environnement/environnement.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from './login/login.component'
+import {HttpClientModule} from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {LoginComponent} from './login/login.component'
     EnvironnementComponent,
     LoginComponent
   ],
-  imports: [
+  imports     : [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
