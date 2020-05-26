@@ -39,6 +39,8 @@ public class User implements UserDetails {
 
     private String about;
 
+    private String environnement;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.emptyList();

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router} from "@angular/router"
 import {HttpClient, HttpHeaders} from "@angular/common/http"
 import {User} from "../models/user.model"
+import {FormBuilder} from "@angular/forms"
 
 @Injectable()
 export class UserService {
@@ -37,4 +38,14 @@ export class UserService {
     const options = new HttpHeaders(form ? {Authorization: 'Basic ' + window.btoa(form.username + ':' + form.password)} : {})
     return this.httpClient.get('/service/user/login', {headers: options})
   }
+
+  updatePassword = (formValue: FormBuilder) => {
+    let form = {
+      password   : formValue['password'],
+      newPassword: formValue['newPassword'],
+      username   : this.getUser().username
+    }
+    return this.httpClient.put("/service/user/updatePassword", form);
+  }
+
 }

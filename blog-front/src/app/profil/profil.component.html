@@ -1,16 +1,8 @@
 <app-admin></app-admin>
 <div class="container pt-2">
   <h2>Modifier mon profil</h2>
-  <form method="post" class="mb-2" [formGroup]="profilForm" (ngSubmit)="Submit()" enctype="multipart/form-data">
-    <h3>Modifier mon mot de passe</h3>
-    <div class="form-group row">
-      <label for="oldPassword" class="col-sm-2 col-form-label">Ancien mot de passe :</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="oldPassword" placeholder="Votre ancien mot de passe"
-               name="oldPassword"
-               formControlName="oldPassword">
-      </div>
-    </div>
+  <form method="post" class="mb-2" [formGroup]="passwordForm" (ngSubmit)="SubmitPassword()" enctype="multipart/form-data">
+    <h3 class="h3">Modifier mon mot de passe</h3>
     <div class="form-group row">
       <label for="password" class="col-sm-2 col-form-label">Nouveau mot de passe :</label>
       <div class="col-sm-10">
@@ -27,6 +19,10 @@
                formControlName="newPassword">
       </div>
     </div>
+    <button type="submit" class="btn btn-primary" [disabled]="passwordForm.invalid">Se connecter</button>
+  </form>
+  <hr class="hr">
+  <form method="post" class="mb-2" [formGroup]="userForm" (ngSubmit)="SubmitUser()" enctype="multipart/form-data">
     <h3>Modifier mon profil</h3>
     <div class="form-group">
       <label for="username">Changer votre nom d'utilisateur :</label>
@@ -40,7 +36,7 @@
              placeholder="Attention : votre nom d'utilisateur sera votre nom affiché au public" name="usernamePublic"
              formControlName="usernamePublic">
     </div>
-    <h3>Mes réseaux sociaux</h3>
+    <h3 class="h3">Mes réseaux sociaux</h3>
     <div class="form-group row">
       <label for="github" class="col-sm-2 col-form-label">Votre compte Github :</label>
       <div class="col-sm-10">
@@ -48,28 +44,36 @@
                name="github"
                formControlName="github">
       </div>
-    </div><div class="form-group row">
-    <label for="linkedin" class="col-sm-2 col-form-label">Votre compte Linkedin :</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="linkedin" placeholder="Votre compte linkedin"
-             name="linkedin"
-             formControlName="linkedin">
     </div>
-  </div><div class="form-group row">
-    <label for="twitter" class="col-sm-2 col-form-label">Votre compte Twitter :</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="twitter" placeholder="Votre compte twitter"
-             name="twitter"
-             formControlName="twitter">
+    <div class="form-group row">
+      <label for="linkedin" class="col-sm-2 col-form-label">Votre compte Linkedin :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="linkedin" placeholder="Votre compte linkedin"
+               name="linkedin"
+               formControlName="linkedin">
+      </div>
     </div>
-  </div>
-    <h3>A propos de moi</h3>
+    <div class="form-group row">
+      <label for="twitter" class="col-sm-2 col-form-label">Votre compte Twitter :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="twitter" placeholder="Votre compte twitter"
+               name="twitter"
+               formControlName="twitter">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Se connecter</button>
+  </form>
+  <hr class="hr">
+  <form method="post" class="mb-2" [formGroup]="profilForm" (ngSubmit)="SubmitProfil()" enctype="multipart/form-data">
+    <h3 class="h3">A propos de moi</h3>
     <div class="form-group">
       <ckeditor [editor]="Editor" tagName="textarea" data="<p>A propos de moi :)</p>" id="about" name="about"
                 formControlName="about" style="min-height: 500px"></ckeditor>
     </div>
+    <h3>Mon environnement</h3>
     <div class="form-group">
-      <ckeditor [editor]="Editor" tagName="textarea" data="<p>A propos de moi :)</p>" id="environnement" name="environnement"
+      <ckeditor [editor]="Editor" tagName="textarea" data="<p>Mon environnement</p>" id="environnement"
+                name="environnement"
                 formControlName="environnement" style="min-height: 500px"></ckeditor>
     </div>
     <div class="form-group text-right">
