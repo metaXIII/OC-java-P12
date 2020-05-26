@@ -1,23 +1,17 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router"
+import {Router} from "@angular/router"
 import {HttpClient, HttpHeaders} from "@angular/common/http"
 import {User} from "../models/user.model"
 
 @Injectable()
 export class UserService {
-  private user: User
+  private user: User = null
 
   constructor(private router: Router, private httpClient: HttpClient) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.isConnected()) {
-      this.router.navigate(['index'])
-    }
-  }
-
-  private isConnected() {
-    return true
+  isConnected = () => {
+    return this.getUser();
   }
 
   setUser(data: User) {
@@ -32,7 +26,7 @@ export class UserService {
     this.user = null
   }
 
-  login = (form: User) => {
+  login = (form: any) => {
     this.logout()
     form          = {username: form['username'], password: form['password']}
     const options = new HttpHeaders(form ? {Authorization: 'Basic ' + window.btoa(form.username + ':' + form.password)} : {})

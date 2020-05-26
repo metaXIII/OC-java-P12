@@ -30,14 +30,10 @@ export class LoginComponent implements OnInit {
   public Submit() {
     let formValue = this.signinForm.value
     let user      = {username: formValue['username'], password: formValue['password']}
-    this.userService.login(user).subscribe((data: any) => {
-      console.log("ok")
-      console.log(data)
+    this.userService.login(user).subscribe((data: User) => {
       this.userService.setUser(data)
-      // this.router.navigate(['admin'])
+      this.router.navigate(['admin'])
     }, callback => {
-      console.log("error")
-      console.log(callback)
       this.error = true
     })
   }
