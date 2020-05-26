@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../service/user.service"
 
 @Component({
-  selector: 'app-footer',
+  selector   : 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls  : ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(public userService: UserService) {
   }
 
+  ngOnInit() {
+  }
+
+  logout() {
+    this.userService.logout()
+  }
 }

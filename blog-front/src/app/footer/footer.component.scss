@@ -5,4 +5,10 @@ footer {
   border-top: 1px solid #f7f7f7;
   height: 40px;
   padding: 10px 25px;
+  overflow: hidden;
+}
+
+.logout {
+  position: relative;
+  top: -10px;
 }

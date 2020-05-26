@@ -16,13 +16,19 @@ export class UserService {
 
   setUser(data: User) {
     this.user = data
+    sessionStorage.setItem("user", JSON.stringify(this.user));
   }
 
   getUser() {
+    let memory = sessionStorage.getItem("user")
+    if (memory) {
+      this.user = JSON.parse(memory)
+    }
     return this.user
   }
 
-  private logout() {
+  logout() {
+    sessionStorage.setItem("user", null);
     this.user = null
   }
 
