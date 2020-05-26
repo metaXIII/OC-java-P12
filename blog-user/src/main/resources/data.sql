@@ -1,0 +1,2 @@
+insert into user(ID, USERNAME, USERNAMEPUBLIC, PASSWORD, TWITTER, LINKEDIN, GITHUB, MAIL, ABOUT) values
+(1, 'admin', 'admin', '$2a$10$91tBPxu9O1UDUxydFNPrhexNRHIytVH9FHJOr9iImbJpyj1nM9iu6', null , null , null , 'test@test',null)

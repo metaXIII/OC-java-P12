@@ -32,12 +32,10 @@ export class UserService {
     this.user = null
   }
 
-  login = (form: any) => {
+  login = (form: User) => {
     this.logout()
-    const options = new HttpHeaders(form ? {
-      authorization: 'Basic ' +
-        btoa(form.username + ':' + form.password)
-    } : {})
-    return this.httpClient.get('/service/user/info', {headers: options})
+    form          = {username: form['username'], password: form['password']}
+    const options = new HttpHeaders(form ? {Authorization: 'Basic ' + window.btoa(form.username + ':' + form.password)} : {})
+    return this.httpClient.get('/service/user/login', {headers: options})
   }
 }
