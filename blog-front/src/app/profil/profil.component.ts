@@ -3,6 +3,7 @@ import {UserService} from "../service/user.service"
 import {FormBuilder, FormGroup, Validators} from "@angular/forms"
 import * as ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import {User} from "../models/user.model"
+import {Router} from "@angular/router"
 
 @Component({
   selector   : 'app-profil',
@@ -18,7 +19,7 @@ export class ProfilComponent implements OnInit {
   public Editor = ClassicEditor;
   user: User
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -49,7 +50,8 @@ export class ProfilComponent implements OnInit {
     let formValue = this.passwordForm.value
     if (formValue.password === formValue.newPassword) {
       this.userService.updatePassword(formValue).subscribe((resp) => {
-        console.log('Tout s\'est bien passé')
+        this.userService.logout()
+        this.router.navigate(['index'])
       }, err => {
         console.log(err)
       })
