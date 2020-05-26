@@ -1,7 +1,16 @@
 <div class="container pt-2">
-<p>admin works!</p>
-
-  <span>{{ok}}</span>
-
+<div class="border row p-4">
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="navigate('admin/articles')">Gérer mes articles</button>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="navigate('admin/create-article')">Écrire un nouvel article</button>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="navigate('admin/profil')">Modifier mon profil</button>
+  </div>
 </div>
+</div>
+
+
 

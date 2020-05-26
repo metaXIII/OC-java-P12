@@ -1,7 +1,8 @@
 <footer>
   <div class="d-flex">
-    <a routerLink="login">Administration</a>
-    <button class="btn btn-danger pl-1 logout" (click)="logout()" *ngIf="this.userService.getUser()">Se déconnecter</button>
+    <a routerLink="login" *ngIf="!this.userService.getUser()">Administration</a>
+    <a routerLink="admin" *ngIf="this.userService.getUser()">Administration</a>
+    <button class="btn btn-danger ml-2 logout" (click)="logout()" *ngIf="this.userService.getUser()">Se déconnecter</button>
     <a href="mailto:lehchibi.gael@gmail.com" class="ml-auto">Me contacter</a>
   </div>
 </footer>

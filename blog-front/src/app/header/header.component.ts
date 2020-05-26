@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router"
+import {UserService} from "../service/user.service"
 
 @Component({
   selector   : 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   links: any[]
   activeLinkIndex = -1
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {

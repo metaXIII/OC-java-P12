@@ -21,9 +21,8 @@ export class UserService {
 
   getUser() {
     let memory = sessionStorage.getItem("user")
-    if (memory) {
+    if (memory)
       this.user = JSON.parse(memory)
-    }
     return this.user
   }
 

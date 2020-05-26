@@ -15,7 +15,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from './login/login.component'
 import {HttpClientModule} from "@angular/common/http"
-import {AuthGuard} from "./service/auth-guard.service"
+import {AuthGuard} from "./service/auth-guard.service";
+import { ArticleComponent } from './article/article.component';
+import { NewArticleComponent } from './new-article/new-article.component';
+import { ProfilComponent } from './profil/profil.component';
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular"
 
 @NgModule({
   declarations: [
@@ -25,9 +29,13 @@ import {AuthGuard} from "./service/auth-guard.service"
     FooterComponent,
     AdminComponent,
     EnvironnementComponent,
-    LoginComponent
+    LoginComponent,
+    ArticleComponent,
+    NewArticleComponent,
+    ProfilComponent,
   ],
   imports     : [
+    CKEditorModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
