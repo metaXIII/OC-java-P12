@@ -1,7 +1,8 @@
 <app-admin></app-admin>
 <div class="container pt-2">
   <h2>Modifier mon profil</h2>
-  <form method="post" class="mb-2" [formGroup]="passwordForm" (ngSubmit)="SubmitPassword()" enctype="multipart/form-data">
+  <form method="post" class="mb-2" [formGroup]="passwordForm" (ngSubmit)="SubmitPassword()"
+        enctype="multipart/form-data">
     <h3 class="h3">Modifier mon mot de passe</h3>
     <div class="form-group row">
       <label for="password" class="col-sm-2 col-form-label">Nouveau mot de passe :</label>
@@ -19,7 +20,7 @@
                formControlName="newPassword">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="passwordForm.invalid">Se connecter</button>
+    <button type="submit" class="btn btn-primary" [disabled]="passwordForm.invalid">Modifier mon mot de passe</button>
   </form>
   <hr class="hr">
   <form method="post" class="mb-2" [formGroup]="userForm" (ngSubmit)="SubmitUser()" enctype="multipart/form-data">
@@ -83,7 +84,7 @@
                 formControlName="environnement" style="min-height: 500px"></ckeditor>
     </div>
     <div class="form-group text-right">
-      <button type="submit" class="btn btn-primary" [disabled]="profilForm.invalid">Se connecter</button>
+      <button type="submit" class="btn btn-primary" [disabled]="profilForm.invalid">Modifier mon profil</button>
     </div>
   </form>
 </div>
