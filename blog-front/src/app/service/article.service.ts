@@ -38,4 +38,8 @@ export class ArticleService {
   getDate(localDate: Date) {
     return new Date(localDate).toLocaleDateString(undefined, this.options)
   }
+
+  findAllTags = () =>{
+    return this.httpClient.get("service/article/tags");
+  }
 }

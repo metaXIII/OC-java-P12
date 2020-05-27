@@ -1,5 +1,6 @@
 package com.blog.article.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +21,9 @@ public class Article {
 
     private String content;
 
-    private String tags;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "TAGS")
+    private Tags tags;
 
     @Column(name = "LOCALDATE")
     private LocalDate localDate;

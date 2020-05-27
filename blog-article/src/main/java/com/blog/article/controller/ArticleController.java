@@ -4,6 +4,7 @@ import com.blog.article.dto.ArticleDto;
 import com.blog.article.exception.ArticleException;
 import com.blog.article.model.Article;
 import com.blog.article.service.IArticleService;
+import com.blog.article.service.ITagService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ import java.util.List;
 public class ArticleController {
 
     private final IArticleService articleService;
+
+    private final ITagService tagService;
 
     @GetMapping("all/{page}/{number}")
     public ResponseEntity findAll(@PathVariable("page") int page, @PathVariable("number") int number) {
@@ -50,5 +53,10 @@ public class ArticleController {
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("tags")
+    public ResponseEntity getListTags() {
+        return new ResponseEntity(tagService.findAllTags(), HttpStatus.ACCEPTED);
     }
 }

@@ -16,6 +16,7 @@ export class IndexComponent implements OnInit {
   done: boolean  = false
   socials: any
   Articles: [Article]
+  categories: any
 
   constructor(private userService: UserService, private articleService: ArticleService, private router: Router) {
   }
@@ -32,6 +33,12 @@ export class IndexComponent implements OnInit {
     }
     this.userService.getSocial().subscribe(resp => {
       this.socials = resp;
+    }, err => {
+      console.log(err)
+    })
+    this.articleService.findAllTags().subscribe(resp => {
+      console.log(resp)
+      this.categories = resp;
     }, err => {
       console.log(err)
     })

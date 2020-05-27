@@ -6,6 +6,7 @@ import com.blog.article.model.Article;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
+import java.util.Set;
 
 public interface IArticleService {
     List<Article> findAllForPageLimit(int page, int number);
