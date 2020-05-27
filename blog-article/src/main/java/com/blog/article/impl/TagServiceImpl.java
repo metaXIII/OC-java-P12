@@ -32,8 +32,12 @@ public class TagServiceImpl implements ITagService {
 
     @Override
     public void save(Tags tagsProvided) {
-        List<Tags> tags = tagsRepository.findAll();
-        if (!tags.contains(tagsProvided))
+        Set<String> tags     = new HashSet<>();
+        List<Tags>  tagsList = tagsRepository.findAll();
+        tagsList.forEach(x -> {
+            tags.add(x.getTag());
+        });
+        if (tags.stream().noneMatch(tagsProvided.getTag()::equalsIgnoreCase))
             tagsRepository.save(tagsProvided);
     }
 }

@@ -37,7 +37,6 @@ export class IndexComponent implements OnInit {
       console.log(err)
     })
     this.articleService.findAllTags().subscribe(resp => {
-      console.log(resp)
       this.categories = resp;
     }, err => {
       console.log(err)
