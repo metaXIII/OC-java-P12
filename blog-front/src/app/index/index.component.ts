@@ -64,4 +64,13 @@ export class IndexComponent implements OnInit {
       .map((article, i) => ({id: i + 1, ...article}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize) : []
   }
+
+  search(category: string) {
+    this.articleService.search(category).subscribe((resp: [Article]) => {
+      this.Articles = resp
+      this.collectionSize = this.Articles.length
+    }, err => {
+      console.log(err)
+    })
+  }
 }

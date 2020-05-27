@@ -36,7 +36,7 @@ public class ArticleController {
     }
 
     @GetMapping("findById/{id}")
-    public ResponseEntity getById(@PathVariable long id) {
+    public ResponseEntity getById(@PathVariable("id") long id) {
         try {
             return new ResponseEntity(articleService.findById(id), HttpStatus.ACCEPTED);
         } catch (Exception | ArticleException e) {
@@ -58,5 +58,10 @@ public class ArticleController {
     @GetMapping("tags")
     public ResponseEntity getListTags() {
         return new ResponseEntity(tagService.findAllTags(), HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("search/{category}")
+    public ResponseEntity Search(@PathVariable("category") String category) {
+        return new ResponseEntity(articleService.findByCategorie(category), HttpStatus.ACCEPTED);
     }
 }

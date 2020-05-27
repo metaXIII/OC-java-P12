@@ -7,7 +7,7 @@ import {UserService} from "./user.service"
 @Injectable()
 export class ArticleService {
   private user: User = null
-  options        = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  options            = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
 
   constructor(private router: Router, private httpClient: HttpClient, private userService: UserService) {
   }
@@ -39,7 +39,11 @@ export class ArticleService {
     return new Date(localDate).toLocaleDateString(undefined, this.options)
   }
 
-  findAllTags = () =>{
+  findAllTags = () => {
     return this.httpClient.get("service/article/tags");
+  }
+
+  search = (category: string) => {
+    return this.httpClient.get("service/article/search/" + category);
   }
 }

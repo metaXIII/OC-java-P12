@@ -16,7 +16,9 @@
     </div>
     <div>
       <h2>Catégories</h2>
-      <p *ngFor="let category of categories">{{category}}</p>
+      <p *ngFor="let category of categories">
+        <button class="btn bg-dark text-white w-200px" (click)="search(category)">{{category}}</button>
+      </p>
     </div>
   </div>
 </div>

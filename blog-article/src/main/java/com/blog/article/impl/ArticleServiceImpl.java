@@ -6,7 +6,6 @@ import com.blog.article.model.Article;
 import com.blog.article.model.Tags;
 import com.blog.article.proxy.GatewayProxy;
 import com.blog.article.repository.ArticleRepository;
-import com.blog.article.repository.TagsRepository;
 import com.blog.article.service.IArticleService;
 import com.blog.article.service.ITagService;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +16,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Transactional
@@ -75,5 +72,10 @@ public class ArticleServiceImpl implements IArticleService {
         } catch (Exception e) {
             log.error(e.getMessage());
         }
+    }
+
+    @Override
+    public List<Article> findByCategorie(String category) {
+        return articleRepository.findByTags_TagContaining(category);
     }
 }
