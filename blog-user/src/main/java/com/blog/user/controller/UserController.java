@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 @RequestMapping("/api/user/")
 @CrossOrigin
@@ -60,9 +62,19 @@ public class UserController {
         }
     }
 
+    @GetMapping("environnement")
+    public ResponseEntity<Set<String>> getEnvironnementForPublic() {
+        return new ResponseEntity<>(userService.environnementForPublic(), HttpStatus.ACCEPTED);
+    }
+
     @GetMapping("logout")
     public ResponseEntity logout() {
         SecurityContextHolder.clearContext();
         return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("social")
+    public ResponseEntity<Set<String>> getSocialForPublic() {
+        return new ResponseEntity<>(userService.socialForPublic(), HttpStatus.ACCEPTED);
     }
 }

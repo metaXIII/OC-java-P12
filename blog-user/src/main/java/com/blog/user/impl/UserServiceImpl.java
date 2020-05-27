@@ -17,7 +17,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -88,5 +90,28 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
                     return new UsernameNotFoundException("Il n'existe pas d'utilisateurs avec le nom " + "d" +
                                                                  "'utilisateur " + username);
                 });
+    }
+
+    @Override
+    public Set<String> environnementForPublic() {
+        Set<String>    collection = new HashSet<>();
+        Optional<User> user       = userRepository.findById((long) 1);
+        if (user.isPresent()) {
+            collection.add(user.get().getEnvironnement());
+            collection.add(user.get().getAbout());
+        }
+        return collection;
+    }
+
+    @Override
+    public Set<String> socialForPublic() {
+        Set<String>    collection = new HashSet<>();
+        Optional<User> user       = userRepository.findById((long) 1);
+        if (user.isPresent()) {
+            collection.add("Github," + user.get().getGithub());
+            collection.add("Linkedin," + user.get().getLinkedin());
+            collection.add("Twitter," + user.get().getTwitter());
+        }
+        return collection;
     }
 }

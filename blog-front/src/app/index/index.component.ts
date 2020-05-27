@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UserService} from "../service/user.service"
 
 @Component({
   selector   : 'app-index',
@@ -6,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls  : ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-  Countries    = [
+  Countries      = [
     {
       name      : 'Russia',
       flag      : 'f/f3/Flag_of_Russia.svg',
@@ -33,8 +34,9 @@ export class IndexComponent implements OnInit {
     }
   ];
   collectionSize = this.Countries.length;
-  pageSize = 20;
-  page: number = 1
+  pageSize       = 20;
+  page: number   = 1
+  socials: any
 
   get countries() {
     return this.Countries
@@ -42,10 +44,16 @@ export class IndexComponent implements OnInit {
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.getSocial().subscribe(resp => {
+      this.socials = resp;
+      console.log(this.socials)
+    }, err => {
+      console.log(err)
+    })
   }
 
 }

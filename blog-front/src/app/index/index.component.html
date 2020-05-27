@@ -17,10 +17,9 @@
   <div class="col-3 text-right">
     <div>
       <h2>Réseaux Sociaux</h2>
-      <p>aze</p>
-      <p>aze</p>
-      <p>aze</p>
-      <p>aze</p>
+      <p *ngFor="let social of socials">
+        <a class="btn bg-dark text-white w-200px" [href]="social.split(',')[1]" target="_blank">{{social.split(',')[0]}}</a>
+      </p>
     </div>
     <div>
       <h2>Catégories</h2>

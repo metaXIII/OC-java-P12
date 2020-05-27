@@ -67,4 +67,12 @@ export class UserService {
     }
     return this.httpClient.put("service/user/updateProfil", form)
   }
+
+  getEnvironnement = () => {
+    return this.httpClient.get("service/user/environnement")
+  }
+
+  getSocial = () => {
+    return this.httpClient.get("service/user/social")
+  }
 }
