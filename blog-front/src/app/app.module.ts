@@ -21,7 +21,9 @@ import {NewArticleComponent} from './new-article/new-article.component';
 import {ProfilComponent} from './profil/profil.component';
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular"
 import {ArticleService} from "./service/article.service";
-import {ViewComponent} from './view/view.component'
+import {ViewComponent} from './view/view.component';
+import {NewsletterComponent} from './newsletter/newsletter.component'
+import {EmailService} from "./service/email.service"
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import {ViewComponent} from './view/view.component'
     NewArticleComponent,
     ProfilComponent,
     ViewComponent,
+    NewsletterComponent,
   ],
   imports     : [
     CKEditorModule,
@@ -52,7 +55,8 @@ import {ViewComponent} from './view/view.component'
     UserService,
     AuthGuard,
     FormBuilder,
-    ArticleService
+    ArticleService,
+    EmailService
   ],
   bootstrap   : [AppComponent]
 })
