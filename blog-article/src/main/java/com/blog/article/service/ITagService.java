@@ -7,5 +7,5 @@ import java.util.Set;
 public interface ITagService {
     public Set<String> findAllTags();
 
-    void save(Tags tags);
+    Tags save(Tags tags);
 }

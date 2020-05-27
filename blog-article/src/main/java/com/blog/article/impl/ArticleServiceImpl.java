@@ -63,7 +63,7 @@ public class ArticleServiceImpl implements IArticleService {
                 Article article = new Article();
                 Tags    tags    = new Tags();
                 tags.setTag(articleDto.getTags() != null ? articleDto.getTags() : "");
-                tagService.save(tags);
+                tags = tagService.save(tags);
                 article.setTags(tags);
                 article.setTitre(articleDto.getTitre() != null ? articleDto.getTitre() : "");
                 article.setSynopsis(articleDto.getSynopsis() != null ? articleDto.getSynopsis() : "");

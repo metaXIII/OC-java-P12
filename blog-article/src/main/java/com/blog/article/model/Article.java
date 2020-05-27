@@ -21,7 +21,7 @@ public class Article {
 
     private String content;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "TAGS")
     private Tags tags;
 

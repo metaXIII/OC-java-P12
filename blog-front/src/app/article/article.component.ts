@@ -7,16 +7,16 @@ import {Router} from "@angular/router"
   styleUrls  : ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  collectionSize = this.Countries.length;
+  // collectionSize = this.Countries.length;
   pageSize = 20;
   page: number = 1
   country: number
 
-  get countries() {
-    return this.Countries
-      .map((country, i) => ({id: i + 1, ...country}))
-      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-  }
+  // get countries() {
+  //   return this.Countries
+  //     .map((country, i) => ({id: i + 1, ...country}))
+  //     .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  // }
 
   constructor(private router: Router) {
   }

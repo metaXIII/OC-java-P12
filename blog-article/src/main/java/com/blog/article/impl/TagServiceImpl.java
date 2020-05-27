@@ -31,13 +31,21 @@ public class TagServiceImpl implements ITagService {
     }
 
     @Override
-    public void save(Tags tagsProvided) {
+    public Tags save(Tags tagsProvided) {
         Set<String> tags     = new HashSet<>();
         List<Tags>  tagsList = tagsRepository.findAll();
         tagsList.forEach(x -> {
             tags.add(x.getTag());
         });
-        if (tags.stream().noneMatch(tagsProvided.getTag()::equalsIgnoreCase))
-            tagsRepository.save(tagsProvided);
+        if (tags.stream().noneMatch(tagsProvided.getTag()::equalsIgnoreCase)) {
+            tagsProvided = tagsRepository.save(tagsProvided);
+        } else {
+            int index = 0;
+            while (!tagsProvided.getTag().equals(tagsList.get(index).getTag())) {
+                index++;
+            }
+            tagsProvided.setId(tagsList.get(index).getId());
+        }
+        return tagsProvided;
     }
 }
