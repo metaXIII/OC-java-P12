@@ -9,8 +9,8 @@ import {EmailService} from "../service/email.service"
 })
 export class NewsletterComponent implements OnInit {
   subscriptionForm: FormGroup
-  private success: boolean
-  private error: boolean
+  success: boolean
+  error: boolean
 
   constructor(private formBuilder: FormBuilder, private emailService: EmailService) {
   }

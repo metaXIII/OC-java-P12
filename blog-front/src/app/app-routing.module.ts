@@ -10,6 +10,7 @@ import {NewArticleComponent} from "./new-article/new-article.component"
 import {ProfilComponent} from "./profil/profil.component"
 import {ViewComponent} from './view/view.component'
 import {NewsletterComponent} from "./newsletter/newsletter.component"
+import {OldArticleComponent} from "./old-article/old-article.component"
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'admin/articles', component: ArticleComponent, canActivate: [AuthGuard]},
   {path: 'admin/create-article', component: NewArticleComponent, canActivate: [AuthGuard]},
+  {path: 'admin/modify/:id', component: OldArticleComponent, canActivate: [AuthGuard]},
   {path: 'admin/profil', component: ProfilComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'index'}
 ];

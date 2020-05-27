@@ -64,4 +64,9 @@ public class ArticleController {
     public ResponseEntity Search(@PathVariable("category") String category) {
         return new ResponseEntity(articleService.findByCategorie(category), HttpStatus.ACCEPTED);
     }
+
+    @GetMapping("admin-all")
+    public ResponseEntity getAllArticles() {
+        return new ResponseEntity(articleService.findAllForAdmin(), HttpStatus.ACCEPTED);
+    }
 }

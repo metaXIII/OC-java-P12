@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router"
+import {UserService} from "../service/user.service"
+import {ArticleService} from "../service/article.service"
+import {Article} from "../models/article.model"
 
 @Component({
   selector   : 'app-article',
@@ -7,25 +10,20 @@ import {Router} from "@angular/router"
   styleUrls  : ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  // collectionSize = this.Countries.length;
-  pageSize = 20;
-  page: number = 1
-  country: number
+  articles: any
 
-  // get countries() {
-  //   return this.Countries
-  //     .map((country, i) => ({id: i + 1, ...country}))
-  //     .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-  // }
-
-  constructor(private router: Router) {
+  constructor(private userService: UserService, public articleService: ArticleService, private router: Router) {
   }
 
   ngOnInit() {
+    this.articleService.findAllAdmin().subscribe((resp: [Article]) => {
+      this.articles = resp
+    }, err => {
+      console.log(err)
+    })
   }
 
   modify(id: number) {
-    alert('should modify by id')
     this.router.navigate(['admin/modify/' + id])
   }
 

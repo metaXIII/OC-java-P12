@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
   Articles: [Article]
   categories: any
 
-  constructor(private userService: UserService, private articleService: ArticleService, private router: Router) {
+  constructor(private userService: UserService, public articleService: ArticleService, private router: Router) {
   }
 
   ngOnInit(): void {

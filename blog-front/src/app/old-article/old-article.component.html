@@ -1,0 +1,28 @@
+<app-admin></app-admin>
+<div class="container pt-2">
+  <h2 class="h2">Écrire un nouvel article</h2>
+  <form method="post" class="mb-2" [formGroup]="articleForm" (ngSubmit)="Submit()" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="titre">Titre de l'article :</label>
+      <input type="text" class="form-control" id="titre" placeholder="Titre de l'article" name="titre"
+             formControlName="titre">
+    </div>
+    <div class="form-group">
+      <label for="synopsis">Synopsis de l'article :</label>
+      <input type="text" class="form-control" id="synopsis" placeholder="Synopsis de l'article" name="synopsis"
+             formControlName="synopsis">
+    </div>
+    <div class="form-group">
+      <label for="tags">Tags :</label>
+      <input type="text" class="form-control" id="tags" placeholder="Titre de l'article" name="tags"
+             formControlName="tags">
+    </div>
+    <div class="form-group">
+      <ckeditor [editor]="Editor" tagName="textarea" data="<p>Hello, world!</p>" id="content" name="content"
+                formControlName="content" style="min-height: 500px"></ckeditor>
+    </div>
+    <div class="form-group text-right">
+      <button type="submit" class="btn btn-primary" [disabled]="articleForm.invalid">Valider</button>
+    </div>
+  </form>
+</div>

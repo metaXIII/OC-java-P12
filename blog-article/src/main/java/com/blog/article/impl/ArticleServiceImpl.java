@@ -6,6 +6,7 @@ import com.blog.article.model.Article;
 import com.blog.article.model.Tags;
 import com.blog.article.proxy.GatewayProxy;
 import com.blog.article.repository.ArticleRepository;
+import com.blog.article.repository.ArticleRepositoryPage;
 import com.blog.article.service.IArticleService;
 import com.blog.article.service.ITagService;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ArticleServiceImpl implements IArticleService {
 
+    private final ArticleRepositoryPage articleRepositoryPage;
+
     private final ArticleRepository articleRepository;
 
     private final GatewayProxy gatewayProxy;
@@ -33,17 +36,17 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public List<Article> findAllForPageLimit(int page, int number) {
-        return articleRepository.findAll(PageRequest.of(page, number)).toList();
+        return articleRepositoryPage.findAll(PageRequest.of(page, number)).toList();
     }
 
     @Override
     public List<Article> findAll() {
-        return (List<Article>) articleRepository.findAll();
+        return (List<Article>) articleRepositoryPage.findAll();
     }
 
     @Override
     public Article findById(long id) throws ArticleException {
-        Optional<Article> article = articleRepository.findById((int) id);
+        Optional<Article> article = articleRepositoryPage.findById((int) id);
         if (article.isPresent())
             return article.get();
         else {
@@ -66,7 +69,7 @@ public class ArticleServiceImpl implements IArticleService {
                 article.setSynopsis(articleDto.getSynopsis() != null ? articleDto.getSynopsis() : "");
                 article.setContent(articleDto.getContent() != null ? articleDto.getContent() : "");
                 article.setLocalDate(LocalDate.now());
-                articleRepository.save(article);
+                articleRepositoryPage.save(article);
             } else
                 throw new UserPrincipalNotFoundException("L'utilisateur n'est pas disponible ou n'existe pas");
         } catch (Exception e) {
@@ -76,6 +79,11 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public List<Article> findByCategorie(String category) {
-        return articleRepository.findByTags_TagContaining(category);
+        return articleRepositoryPage.findByTags_TagContaining(category);
+    }
+
+    @Override
+    public List<Article> findAllForAdmin() {
+        return articleRepository.findAll();
     }
 }

@@ -23,7 +23,8 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular"
 import {ArticleService} from "./service/article.service";
 import {ViewComponent} from './view/view.component';
 import {NewsletterComponent} from './newsletter/newsletter.component'
-import {EmailService} from "./service/email.service"
+import {EmailService} from "./service/email.service";
+import { OldArticleComponent } from './old-article/old-article.component'
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {EmailService} from "./service/email.service"
     ProfilComponent,
     ViewComponent,
     NewsletterComponent,
+    OldArticleComponent,
   ],
   imports     : [
     CKEditorModule,

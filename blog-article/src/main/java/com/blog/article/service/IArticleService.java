@@ -17,4 +17,6 @@ public interface IArticleService {
     void insert(ArticleDto articleDto) throws UserPrincipalNotFoundException;
 
     List<Article> findByCategorie(String category);
+
+    List<Article> findAllForAdmin();
 }

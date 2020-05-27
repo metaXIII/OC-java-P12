@@ -12,6 +12,10 @@ export class ArticleService {
   constructor(private router: Router, private httpClient: HttpClient, private userService: UserService) {
   }
 
+  findAllAdmin = () => {
+    return this.httpClient.get("service/article/admin-all");
+  }
+
   findAll = (page: number, pageSize: number) => {
     return this.httpClient.get("service/article/all/" + page + "/" + pageSize)
   }

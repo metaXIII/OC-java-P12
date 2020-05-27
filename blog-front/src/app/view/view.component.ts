@@ -14,10 +14,11 @@ export class ViewComponent implements OnInit {
     titre    : '',
     content  : '',
     synopsis : '',
+    tags     : null,
     localDate: new Date()
   }
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
+  constructor(private route: ActivatedRoute, public articleService: ArticleService) {
   }
 
   ngOnInit() {
