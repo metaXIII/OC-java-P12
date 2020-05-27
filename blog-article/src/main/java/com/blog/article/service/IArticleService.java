@@ -1,6 +1,7 @@
 package com.blog.article.service;
 
 import com.blog.article.dto.ArticleDto;
+import com.blog.article.dto.ArticleUpdateDto;
 import com.blog.article.exception.ArticleException;
 import com.blog.article.model.Article;
 
@@ -19,4 +20,6 @@ public interface IArticleService {
     List<Article> findByCategorie(String category);
 
     List<Article> findAllForAdmin();
+
+    void update(ArticleUpdateDto articleUpdateDto);
 }

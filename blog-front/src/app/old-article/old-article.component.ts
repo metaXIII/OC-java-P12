@@ -50,7 +50,7 @@ export class OldArticleComponent implements OnInit {
 
   public Submit() {
     let formValue = this.articleForm.value
-    this.articleService.insert(formValue).subscribe(resp => {
+    this.articleService.update(formValue, this.route.snapshot.params['id']).subscribe(resp => {
       this.router.navigate(['admin/articles'])
     }, err => {
       this.error = true

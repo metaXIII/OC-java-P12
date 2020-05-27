@@ -50,4 +50,16 @@ export class ArticleService {
   search = (category: string) => {
     return this.httpClient.get("service/article/search/" + category);
   }
+
+  update = (formValue: any, id: number) => {
+    let form = {
+      id      : id,
+      titre   : formValue['titre'],
+      synopsis: formValue['synopsis'],
+      tags    : formValue['tags'],
+      content : formValue['content'],
+      control : this.userService.getUser().username
+    }
+    return this.httpClient.post("service/article/update", form);
+  }
 }

@@ -1,6 +1,7 @@
 package com.blog.article.impl;
 
 import com.blog.article.dto.ArticleDto;
+import com.blog.article.dto.ArticleUpdateDto;
 import com.blog.article.exception.ArticleException;
 import com.blog.article.model.Article;
 import com.blog.article.model.Tags;
@@ -85,5 +86,27 @@ public class ArticleServiceImpl implements IArticleService {
     @Override
     public List<Article> findAllForAdmin() {
         return articleRepository.findAll();
+    }
+
+    @Override
+    public void update(ArticleUpdateDto articleUpdateDto) {
+        try {
+            if (gatewayProxy.userExist(articleUpdateDto.getControl()).getBody()) {
+                Article article = new Article();
+                Tags    tags    = new Tags();
+                tags.setTag(articleUpdateDto.getTags() != null ? articleUpdateDto.getTags() : "");
+                tags = tagService.save(tags);
+                article.setId(articleUpdateDto.getId());
+                article.setTags(tags);
+                article.setTitre(articleUpdateDto.getTitre() != null ? articleUpdateDto.getTitre() : "");
+                article.setSynopsis(articleUpdateDto.getSynopsis() != null ? articleUpdateDto.getSynopsis() : "");
+                article.setContent(articleUpdateDto.getContent() != null ? articleUpdateDto.getContent() : "");
+                article.setLocalDate(LocalDate.now());
+                articleRepositoryPage.save(article);
+            } else
+                throw new UserPrincipalNotFoundException("L'utilisateur n'est pas disponible ou n'existe pas");
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
     }
 }

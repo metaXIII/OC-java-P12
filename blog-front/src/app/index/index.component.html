@@ -23,15 +23,17 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-between p-2">
-  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
-  </ngb-pagination>
+<div class="container">
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+    </ngb-pagination>
 
-  <label for="pagination"></label>
-  <select id="pagination" class="custom-select" style="width: auto" [(ngModel)]="pageSize"
-          (ngModelChange)="update(pageSize)">
-    <option [ngValue]="20">20 résultats par page</option>
-    <option [ngValue]="50">50 résultats par page</option>
-    <option [ngValue]="100">100 résultats par page</option>
-  </select>
+    <label for="pagination"></label>
+    <select id="pagination" class="custom-select" style="width: auto" [(ngModel)]="pageSize"
+            (ngModelChange)="update(pageSize)">
+      <option [ngValue]="20">20 résultats par page</option>
+      <option [ngValue]="50">50 résultats par page</option>
+      <option [ngValue]="100">100 résultats par page</option>
+    </select>
+  </div>
 </div>

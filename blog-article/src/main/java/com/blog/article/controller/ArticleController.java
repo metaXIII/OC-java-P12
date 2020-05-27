@@ -1,6 +1,7 @@
 package com.blog.article.controller;
 
 import com.blog.article.dto.ArticleDto;
+import com.blog.article.dto.ArticleUpdateDto;
 import com.blog.article.exception.ArticleException;
 import com.blog.article.model.Article;
 import com.blog.article.service.IArticleService;
@@ -68,5 +69,11 @@ public class ArticleController {
     @GetMapping("admin-all")
     public ResponseEntity getAllArticles() {
         return new ResponseEntity(articleService.findAllForAdmin(), HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping("update")
+    public ResponseEntity updateArticle(@RequestBody ArticleUpdateDto articleUpdateDto) {
+        articleService.update(articleUpdateDto);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 }
