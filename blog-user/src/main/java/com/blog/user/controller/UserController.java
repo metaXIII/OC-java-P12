@@ -1,6 +1,8 @@
 package com.blog.user.controller;
 
 import com.blog.user.dto.PasswordDto;
+import com.blog.user.dto.ProfilDto;
+import com.blog.user.dto.UserDto;
 import com.blog.user.exception.PasswordMatchException;
 import com.blog.user.exception.UserNotFoundException;
 import com.blog.user.service.IUserService;
@@ -36,5 +38,31 @@ public class UserController {
             log.error(e.getMessage());
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PutMapping("updateUser")
+    public ResponseEntity updateUser(@RequestBody UserDto userDto) throws UserNotFoundException {
+        try {
+            return new ResponseEntity(userService.updateUser(userDto), HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("updateProfil")
+    public ResponseEntity updateProfil(@RequestBody ProfilDto profilDto) throws UserNotFoundException {
+        try {
+            return new ResponseEntity(userService.updateProfil(profilDto), HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("logout")
+    public ResponseEntity logout() {
+        SecurityContextHolder.clearContext();
+        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 }

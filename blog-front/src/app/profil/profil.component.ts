@@ -39,6 +39,7 @@ export class ProfilComponent implements OnInit {
       github        : [this.user.github],
       linkedin      : [this.user.linkedin],
       twitter       : [this.user.twitter],
+      email         : [this.user.email]
     })
     this.passwordForm = this.formBuilder.group({
       password   : ['', Validators.required],
@@ -60,11 +61,20 @@ export class ProfilComponent implements OnInit {
 
   SubmitProfil() {
     let formValue = this.profilForm.value
-    // let user      = {username: formValue['username'], password: formValue['password']}
+    this.userService.updateProfil(formValue).subscribe((resp: User) => {
+      this.userService.setUser(resp)
+      this.router.navigate(['mon-environnement'])
+    }, err => {
+      alert('une erreur est survenue')
+    })
   }
 
   SubmitUser() {
     let formValue = this.userForm.value
-    // let user      = {username: formValue['username'], password: formValue['password']}
+    this.userService.updateUser(formValue).subscribe((resp: User) => {
+      this.userService.setUser(resp)
+    }, err => {
+      console.log(err)
+    })
   }
 }

@@ -36,6 +36,12 @@
              placeholder="Attention : votre nom d'utilisateur sera votre nom affiché au public" name="usernamePublic"
              formControlName="usernamePublic">
     </div>
+    <div class="form-group">
+      <label for="email">Changer votre email :</label>
+      <input type="email" class="form-control" id="email"
+             placeholder="Votre email" name="email"
+             formControlName="email">
+    </div>
     <h3 class="h3">Mes réseaux sociaux</h3>
     <div class="form-group row">
       <label for="github" class="col-sm-2 col-form-label">Votre compte Github :</label>
@@ -61,7 +67,7 @@
                formControlName="twitter">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Se connecter</button>
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Envoyer le formulaire</button>
   </form>
   <hr class="hr">
   <form method="post" class="mb-2" [formGroup]="profilForm" (ngSubmit)="SubmitProfil()" enctype="multipart/form-data">

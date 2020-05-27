@@ -17,19 +17,17 @@ export class UserService {
 
   setUser(data: User) {
     this.user = data
-    sessionStorage.setItem("user", JSON.stringify(this.user));
   }
 
   getUser() {
-    let memory = sessionStorage.getItem("user")
-    if (memory)
-      this.user = JSON.parse(memory)
     return this.user
   }
 
   logout() {
-    sessionStorage.setItem("user", null);
     this.user = null
+    this.httpClient.get("/service/user/logout").subscribe(resp => {
+    });
+    this.router.navigate(['index'])
   }
 
   login = (form: any) => {
@@ -45,7 +43,28 @@ export class UserService {
       newPassword: formValue['newPassword'],
       username   : this.getUser().username
     }
-    return this.httpClient.put("/service/user/updatePassword", form);
+    return this.httpClient.put("/service/user/updatePassword", form)
   }
 
+  updateUser = (formValue: FormBuilder) => {
+    let form = {
+      username      : formValue['username'],
+      usernamePublic: formValue['usernamePublic'],
+      github        : formValue['github'],
+      linkedin      : formValue['linkedin'],
+      twitter       : formValue['twitter'],
+      email         : formValue['email'],
+      control       : this.getUser().username
+    }
+    return this.httpClient.put("service/user/updateUser", form)
+  }
+
+  updateProfil = (formValue: any) => {
+    let form = {
+      about        : formValue['about'],
+      environnement: formValue['environnement'],
+      control      : this.getUser().username
+    }
+    return this.httpClient.put("service/user/updateProfil", form)
+  }
 }
