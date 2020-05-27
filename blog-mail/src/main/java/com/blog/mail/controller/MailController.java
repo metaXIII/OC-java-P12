@@ -1,5 +1,6 @@
 package com.blog.mail.controller;
 
+import com.blog.mail.dto.ArticleDto;
 import com.blog.mail.dto.EmailDto;
 import com.blog.mail.service.IEmailService;
 import lombok.AllArgsConstructor;
@@ -16,9 +17,16 @@ import org.springframework.web.bind.annotation.*;
 public class MailController {
 
     private final IEmailService emailService;
+
     @PostMapping("insert")
     public ResponseEntity insert(@RequestBody EmailDto emailDto) {
         emailService.insert(emailDto);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping("send")
+    public ResponseEntity sendEmail(@RequestBody ArticleDto articleDto) {
+        emailService.sendEmail(articleDto);
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 }

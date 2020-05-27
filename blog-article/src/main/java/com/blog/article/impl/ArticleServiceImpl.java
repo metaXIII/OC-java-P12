@@ -71,6 +71,11 @@ public class ArticleServiceImpl implements IArticleService {
                 article.setContent(articleDto.getContent() != null ? articleDto.getContent() : "");
                 article.setLocalDate(LocalDate.now());
                 articleRepositoryPage.save(article);
+                try {
+                    gatewayProxy.sendEmail(article);
+                } catch (Exception e) {
+                    log.error(e.getMessage());
+                }
             } else
                 throw new UserPrincipalNotFoundException("L'utilisateur n'est pas disponible ou n'existe pas");
         } catch (Exception e) {
