@@ -1,0 +1,13 @@
+<div class="container pt-2">
+  <div class="alert alert-danger" *ngIf="error">Une erreur est survenue, merci de réessayer plus tard</div>
+  <div class="alert alert-success" *ngIf="success">L'inscription a été prise en compte, merci !</div>
+  <p>Vous voulez recevoir les nouveaux articles dès votre souscription ? Inscrivez vous !</p>
+  <form method="post" class="mb-2" [formGroup]="subscriptionForm" (ngSubmit)="Submit()">
+    <div class="form-group">
+      <label for="email">Votre adresse email</label>
+      <input type="email" class="form-control" id="email" placeholder="Votre email" name="email"
+             formControlName="email">
+    </div>
+    <button class="btn btn-success" [disabled]="subscriptionForm.invalid">S'inscrire</button>
+  </form>
+</div>
