@@ -3,10 +3,7 @@ package com.blog.article.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -15,7 +12,7 @@ import java.time.LocalDate;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String titre;
 
@@ -23,5 +20,8 @@ public class Article {
 
     private String content;
 
+    private String tags;
+
+    @Column(name = "LOCALDATE")
     private LocalDate localDate;
 }

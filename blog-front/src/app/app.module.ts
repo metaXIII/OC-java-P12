@@ -16,10 +16,12 @@ import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from './login/login.component'
 import {HttpClientModule} from "@angular/common/http"
 import {AuthGuard} from "./service/auth-guard.service";
-import { ArticleComponent } from './article/article.component';
-import { NewArticleComponent } from './new-article/new-article.component';
-import { ProfilComponent } from './profil/profil.component';
+import {ArticleComponent} from './article/article.component';
+import {NewArticleComponent} from './new-article/new-article.component';
+import {ProfilComponent} from './profil/profil.component';
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular"
+import {ArticleService} from "./service/article.service";
+import {ViewComponent} from './view/view.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular"
     ArticleComponent,
     NewArticleComponent,
     ProfilComponent,
+    ViewComponent,
   ],
   imports     : [
     CKEditorModule,
@@ -48,7 +51,8 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular"
   providers   : [
     UserService,
     AuthGuard,
-    FormBuilder
+    FormBuilder,
+    ArticleService
   ],
   bootstrap   : [AppComponent]
 })

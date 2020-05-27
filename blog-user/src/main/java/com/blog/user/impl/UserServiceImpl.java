@@ -114,4 +114,9 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
         }
         return collection;
     }
+
+    @Override
+    public boolean exist(String name) {
+        return userRepository.findByUsername(name).isPresent();
+    }
 }

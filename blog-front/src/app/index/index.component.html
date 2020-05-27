@@ -1,24 +1,17 @@
 <div class="container pt-3 row">
   <div class="offset-1 col-8 row">
-    <div class="border row" *ngFor="let country of countries">
-      <div class="col-3">
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" alt="Photo de l'article"
-             width="100%">
-      </div>
-      <div class="col-9 pl-2">
-        <h3>country.id</h3>
-        <span class="font-italic">country.area</span>
-        <p>
-          country.name
-        </p>
-      </div>
+    <div class="border col-12 m-1 article" *ngFor="let article of articles">
+      <h3 (click)="navigate(article.id)" class="h3 mb-0">{{article.titre}}</h3>
+      <span class="font-italic text-grey">{{this.articleService.getDate(article.localDate)}}</span>
+      <p>{{article.synopsis}}</p>
     </div>
   </div>
   <div class="col-3 text-right">
     <div>
       <h2>Réseaux Sociaux</h2>
       <p *ngFor="let social of socials">
-        <a class="btn bg-dark text-white w-200px" [href]="social.split(',')[1]" target="_blank">{{social.split(',')[0]}}</a>
+        <a class="btn bg-dark text-white w-200px" [href]="social.split(',')[1]"
+           target="_blank">{{social.split(',')[0]}}</a>
       </p>
     </div>
     <div>
@@ -38,7 +31,8 @@
   </ngb-pagination>
 
   <label for="pagination"></label>
-  <select id="pagination" class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+  <select id="pagination" class="custom-select" style="width: auto" [(ngModel)]="pageSize"
+          (ngModelChange)="update(pageSize)">
     <option [ngValue]="20">20 résultats par page</option>
     <option [ngValue]="50">50 résultats par page</option>
     <option [ngValue]="100">100 résultats par page</option>

@@ -19,4 +19,6 @@ public interface IUserService {
     Set<String> environnementForPublic();
 
     Set<String> socialForPublic();
+
+    boolean exist(String name);
 }

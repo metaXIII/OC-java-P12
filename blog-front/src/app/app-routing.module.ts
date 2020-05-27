@@ -8,11 +8,13 @@ import {AuthGuard} from "./service/auth-guard.service"
 import {ArticleComponent} from "./article/article.component"
 import {NewArticleComponent} from "./new-article/new-article.component"
 import {ProfilComponent} from "./profil/profil.component"
+import {ViewComponent} from './view/view.component'
 
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
   {path: 'mon-environnement', component: EnvironnementComponent},
+  {path: 'article/:id', component: ViewComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'admin/articles', component: ArticleComponent, canActivate: [AuthGuard]},

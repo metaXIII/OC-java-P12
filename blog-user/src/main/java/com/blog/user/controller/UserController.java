@@ -77,4 +77,9 @@ public class UserController {
     public ResponseEntity<Set<String>> getSocialForPublic() {
         return new ResponseEntity<>(userService.socialForPublic(), HttpStatus.ACCEPTED);
     }
+
+    @GetMapping("exist/{name}")
+    public ResponseEntity userExist(@PathVariable("name") String name) {
+        return new ResponseEntity(userService.exist(name), HttpStatus.ACCEPTED);
+    }
 }
