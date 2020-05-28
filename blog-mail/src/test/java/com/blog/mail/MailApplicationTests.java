@@ -6,6 +6,8 @@ import org.springframework.test.annotation.Rollback;
 
 import javax.transaction.Transactional;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 @SpringBootTest
 @Rollback
 @Transactional
@@ -13,6 +15,7 @@ class MailApplicationTests {
 
     @Test
     void contextLoads() {
+        assertDoesNotThrow(() -> MailApplication.main(new String[]{}));
     }
 
 }

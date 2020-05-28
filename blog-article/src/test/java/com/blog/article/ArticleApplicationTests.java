@@ -1,5 +1,6 @@
 package com.blog.article;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
@@ -13,6 +14,7 @@ class ArticleApplicationTests {
 
     @Test
     void contextLoads() {
+        Assertions.assertDoesNotThrow(() -> ArticleApplication.main(new String[]{}));
     }
 
 }
