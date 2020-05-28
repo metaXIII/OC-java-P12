@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Rollback
 @Transactional
 @AutoConfigureMockMvc
-class ArticleControllerTest {
+class ArticleControllerTestIT {
 
     @Autowired
     private MockMvc mockMvc;

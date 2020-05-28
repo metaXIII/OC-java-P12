@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 @SpringBootTest
 @Rollback
 @Transactional
-class ArticleApplicationTests {
+class ArticleApplicationTestsIT {
 
     @Test
     void contextLoads() {
