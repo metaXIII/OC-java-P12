@@ -1,12 +1,12 @@
 <div class="container pt-3 row">
-  <div class="offset-1 col-8 row">
+  <div class="offset-md-1 col-md-8 col-12 row">
     <div class="border col-12 m-1 article" *ngFor="let article of articles">
       <h3 (click)="navigate(article.id)" class="h3 mb-0">{{article.titre}}</h3>
       <span class="font-italic text-grey">{{this.articleService.getDate(article.localDate)}}</span>
       <p>{{article.synopsis}}</p>
     </div>
   </div>
-  <div class="col-3 text-right">
+  <div class="col-3 text-right disapear">
     <div>
       <h2>Réseaux Sociaux</h2>
       <p *ngFor="let social of socials">
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" class="disapear">
   <div class="d-flex justify-content-between p-2">
     <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
     </ngb-pagination>

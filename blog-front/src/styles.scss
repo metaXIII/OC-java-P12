@@ -36,5 +36,11 @@ router-outlet {
   background-color: #fff;
 }
 
+@media screen and (max-width: 576px) {
+  .disapear {
+    display: none;
+  }
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
