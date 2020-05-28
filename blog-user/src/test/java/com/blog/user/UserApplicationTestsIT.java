@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @SpringBootTest
 @Rollback
 @Transactional
-class UserApplicationTests {
+class UserApplicationTestsIT {
 
     @Test
     void contextLoads() {
