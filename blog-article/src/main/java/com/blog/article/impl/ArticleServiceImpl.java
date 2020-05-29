@@ -91,7 +91,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public List<Article> findAllForAdmin() {
-        return articleRepository.findAll();
+        return articleRepository.findAllByOrderByIdDesc();
     }
 
     @Override

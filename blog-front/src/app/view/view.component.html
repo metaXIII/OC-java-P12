@@ -1,6 +1,6 @@
 <div class="container pt-2">
   <h3 class="h3">{{article.titre}}</h3>
   <h4 class="h4">{{article.synopsis}}</h4>
-  <h6 class="font-italic">{{articleService.getDate(article.localDate)}}</h6>
+  <h6 class="font-italic text-right" style="font-size: 14px">{{articleService.getDate(article.localDate)}}</h6>
   <p [innerHTML]="article.content" class="content"></p>
 </div>
