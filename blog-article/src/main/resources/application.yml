@@ -3,8 +3,11 @@ server:
 spring:
   application:
     name: blog-article
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/openclassrooms_parcours_java_p12?serverTimezone=UTC
-    username: root
-    password: root
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/openclassrooms_parcours_java_p12?serverTimezone=UTC
+#    username: root
+#    password: root
+  h2:
+    console:
+      enabled: true
