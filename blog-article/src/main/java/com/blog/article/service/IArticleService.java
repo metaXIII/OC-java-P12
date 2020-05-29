@@ -22,4 +22,6 @@ public interface IArticleService {
     List<Article> findAllForAdmin();
 
     void update(ArticleUpdateDto articleUpdateDto);
+
+    void deleteArticle(int id);
 }

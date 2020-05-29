@@ -27,8 +27,12 @@ export class ArticleComponent implements OnInit {
     this.router.navigate(['admin/modify/' + id])
   }
 
-  delete(country: number) {
-    //todo delete by id
-    alert('should delete by id')
+  delete(id: number) {
+    this.articleService.deleteByid(id).subscribe(resp => {
+      console.log("article supprimé")
+    }, err => {
+      console.log(err)
+    })
+    this.router.navigate(['admin'])
   }
 }

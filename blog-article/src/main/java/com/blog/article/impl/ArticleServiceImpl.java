@@ -114,4 +114,13 @@ public class ArticleServiceImpl implements IArticleService {
             log.error(e.getMessage());
         }
     }
+
+    @Override
+    public void deleteArticle(int id) {
+        try {
+            articleRepository.deleteById(id);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+    }
 }

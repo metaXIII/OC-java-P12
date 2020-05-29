@@ -1,3 +1,5 @@
+Le repo est disponible à l'adresse https://github.com/metaXIII/OC-java-P12
+
 # OC-java-P12
 Blog
 

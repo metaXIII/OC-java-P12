@@ -76,4 +76,11 @@ public class ArticleController {
         articleService.update(articleUpdateDto);
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
+
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity deleteArticle(@PathVariable("id") int id) {
+        articleService.deleteArticle(id);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
 }

@@ -62,4 +62,8 @@ export class ArticleService {
     }
     return this.httpClient.post("service/article/update", form);
   }
+
+  deleteByid(id: number) {
+    return this.httpClient.delete("service/article/delete/ " + id);
+  }
 }
