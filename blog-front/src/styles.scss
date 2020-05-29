@@ -36,6 +36,14 @@ router-outlet {
   background-color: #fff;
 }
 
+figure {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
 @media screen and (max-width: 576px) {
   .disapear {
     display: none;

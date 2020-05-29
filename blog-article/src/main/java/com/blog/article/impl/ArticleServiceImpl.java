@@ -13,6 +13,7 @@ import com.blog.article.service.ITagService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -37,7 +38,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public List<Article> findAllForPageLimit(int page, int number) {
-        return articleRepositoryPage.findAll(PageRequest.of(page, number)).toList();
+        return articleRepositoryPage.findAll(PageRequest.of(page, number, Sort.by("id").descending())).toList();
     }
 
     @Override
