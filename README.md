@@ -39,4 +39,6 @@ Installer java (version 11) du jdk disponible [ici](https://www.oracle.com/techn
    
    Merci.
    
-   
+   # Lancement du projet pour la soutenance 
+   Un utilisateur avec deux articles est déjà disponible avec le nom d'utilisateur admin et le mot de passe
+   admin.
