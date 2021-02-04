@@ -6,7 +6,7 @@ notifications:
 services:
   - mysql
 beforeinstall:
-  - mysql -e 'CREATE DATABASE openclassrooms_parcours_java_p12' -u root -p "root"
+  - mysql -e 'CREATE DATABASE openclassrooms_parcours_java_p12' -uroot -proot
 addons:
   sonarcloud:
     organization: metaxiii
