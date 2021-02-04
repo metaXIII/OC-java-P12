@@ -3,6 +3,10 @@ jdk: oraclejdk11
 notifications:
   slack:
     on_success: always
+services:
+  - mysql
+beforeinstall:
+  - mysql -e 'CREATE DATABASE openclassrooms_parcours_java_p12'
 addons:
   sonarcloud:
     organization: metaxiii
