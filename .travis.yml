@@ -6,7 +6,7 @@ notifications:
 services:
   - mysql
 beforeinstall:
-  - mysql -e 'CREATE DATABASE openclassrooms_parcours_java_p12' -u root --password="root"
+  - mysql -u root --password="" < travis.sql
 addons:
   sonarcloud:
     organization: metaxiii
